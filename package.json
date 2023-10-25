@@ -1,13 +1,13 @@
 {
-  "name": "@finsweet/developer-starter",
-  "version": "0.0.0",
-  "description": "Developer starter template for Finsweet projects.",
+  "name": "@ch-chris/cl-custom",
+  "version": "1.0.0",
+  "description": "Custom code for CL official 2023",
   "homepage": "https://github.com/finsweet/developer-starter#readme",
   "license": "ISC",
   "keywords": [],
   "author": {
-    "name": "Finsweet",
-    "url": "https://finsweet.com/"
+    "name": "Chris J SV",
+    "url": "https://calerie.com/"
   },
   "repository": {
     "type": "git",
@@ -52,7 +52,16 @@
     "typescript": "^5.1.3"
   },
   "dependencies": {
-    "@finsweet/ts-utils": "^0.39.2"
+    "@finsweet/ts-utils": "^0.39.2",
+    "@fullcalendar/core": "^6.1.9",
+    "@fullcalendar/daygrid": "^6.1.9",
+    "@fullcalendar/list": "^6.1.9",
+    "@fullcalendar/rrule": "^6.1.9",
+    "granim": "^2.0.0",
+    "gsap": "^3.12.2",
+    "javascript-debounce": "^1.0.1",
+    "pixi.js": "^7.3.2",
+    "tippy.js": "^6.3.7"
   },
   "engines": {
     "pnpm": ">=8"

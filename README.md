@@ -1,4 +1,4 @@
-# Finsweet Developer Starter
+# CL Official 2023
 
 A starter template for both Client & Power projects.
 
