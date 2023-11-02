@@ -11,6 +11,7 @@ export type Event = {
     // interval: number;
     // byweekday: [string];
   };
+  //exdate: string[] | Date[];
   extendedProps: {
     department: string;
   };
