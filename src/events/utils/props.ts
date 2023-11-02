@@ -10,7 +10,11 @@ export const renderListContent = function (info) {
   const day = new Intl.DateTimeFormat('en-US', { weekday: 'short' });
   const monthNumber = new Intl.DateTimeFormat('en-US', { month: 'short' });
   const dayNumber = new Intl.DateTimeFormat('en-US', { day: 'numeric' });
-  const time = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' });
+  const time = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    //timeZoneName: 'short',
+  });
   //create day
   const dayEl = document.createElement('span');
   dayEl.classList.add('ev_fc-list');
@@ -36,8 +40,9 @@ export const renderListContent = function (info) {
   listTimeColumn.append(dayNumberEl);
   listTimeColumn.append(dayEl);
   listTitleColumn.prepend(departmentEl);
-  listTitleColumn.append(timeEl);
-  //element.style.backgroundColor = info.event.backgroundColor;
+  if (info.event.allDay !== true) {
+    listTitleColumn.append(timeEl);
+  }
 };
 
 export const renderGridContent = function (info) {

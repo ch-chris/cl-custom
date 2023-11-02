@@ -1,4 +1,5 @@
 import { Calendar } from '@fullcalendar/core';
+import { cs } from '@fullcalendar/core/internal-common';
 //import { render } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
@@ -19,19 +20,29 @@ window.Webflow.push(() => {
   const getEvents = (): Event[] => {
     const scripts = document.querySelectorAll<HTMLScriptElement>('[ev-element = "event-data"]');
     const events = [...scripts].map((script) => {
+      function replacer(property, value) {
+        if (value === '' || value === ' ' || JSON.stringify(value) === '{}') {
+          return undefined; // change empty string to undefined
+        }
+        return value; // return unchanged
+      }
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const event: Event = JSON.parse(script.textContent!);
-      event.start = new Date(event.start);
-      event.end = new Date(event.end);
+      const event: Event = JSON.parse(script.textContent!, replacer);
+      if (event.hasOwnProperty('rrule')) {
+        event.rrule.dtstart = new Date(event.rrule.dtstart).toISOString();
+        event.rrule.until = new Date(event.rrule.until).toISOString();
+      }
       return event;
     });
     return events;
   };
   const events = getEvents();
+  //console.log(events);
 
   //grid calendar
   const gridCalendar = new Calendar(gridCalendarEl, {
     plugins: [rrulePlugin, dayGridPlugin],
+    timeZone: 'UTC',
     initialView: 'dayGridMonth',
     headerToolbar: {
       left: 'title',
@@ -60,6 +71,7 @@ window.Webflow.push(() => {
   //list calendar
   const listCalendar = new Calendar(listCalendarEl, {
     plugins: [rrulePlugin, listPlugin],
+    timeZone: 'UTC',
     initialView: 'listMonth',
     headerToolbar: {
       left: '',
@@ -67,6 +79,7 @@ window.Webflow.push(() => {
       right: 'prev,next',
     },
     events,
+    displayEventTime: true,
     eventTimeFormat: {
       year: '2-digit',
     },

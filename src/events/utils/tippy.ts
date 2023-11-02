@@ -7,7 +7,7 @@ export const myTippy = function (info) {
   const myTipDate = info.event.start.toLocaleTimeString([], { timeStyle: 'short' });
   const fragment = document.createDocumentFragment();
 
-  const myTipContent = [myTipDept, myTipTitle + ' | ' + myTipDate];
+  const myTipContent = [myTipDept, info.event.allDay ? myTipTitle : myTipTitle + ' | ' + myTipDate];
   let count = 0;
   myTipContent.forEach((content) => {
     const div = document.createElement('div');

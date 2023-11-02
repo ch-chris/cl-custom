@@ -1,11 +1,16 @@
 export type Event = {
   title: string;
   backgroundColor: string;
-  textColor: string;
-  start: string | Date;
-  end: string | Date;
-  daysOfWeek: [];
-  rrule: string;
+  //start: string | Date;
+  //end: string | Date;
+  allDay: boolean;
+  rrule: {
+    freq: string;
+    dtstart: string | Date;
+    until: string | Date;
+    // interval: number;
+    // byweekday: [string];
+  };
   extendedProps: {
     department: string;
   };

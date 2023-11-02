@@ -123,6 +123,9 @@ setTimeout(() => {
 
 //--MISC--//
 //--PAUSE VIDEO ON CLOSE--//
+$('#close0').on('click', function () {
+  $('#video0')[0].pause();
+});
 $('#close1').on('click', function () {
   $('#video1')[0].pause();
 });
