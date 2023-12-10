@@ -11,6 +11,7 @@ const ENTRY_POINTS = [
   'src/events/calendar.ts',
   'src/events/list.ts',
   'src/home/home.js',
+  'src/travel/travel.js',
   'src/global/global.js',
   'src/shop/skincare.js',
 ];
