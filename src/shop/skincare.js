@@ -94,7 +94,7 @@ gsap.to(
 );
 
 //height reset
-const observer = new ResizeObserver(function (entries) {
+const observer = new ResizeObserver(function () {
   ScrollTrigger.refresh();
 });
 observer.observe(document.body);

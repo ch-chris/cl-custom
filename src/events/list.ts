@@ -51,3 +51,29 @@ for (let i = 0; i < listItems.length; i++) {
 //     image.style.transform = `translate(0px,${y / 25}px)`;
 //   });
 // });
+const eventVideoEls = document.querySelectorAll<HTMLVideoElement>('[ev-video-popup="video"]');
+const eventVideoCloseBtns = document.querySelectorAll<HTMLButtonElement>('[ev-video-popup="close"]');
+
+eventVideoEls.forEach((_, i) => {
+  eventVideoCloseBtns[i].addEventListener('click', () => {
+    const video = eventVideoEls[i];
+    if (video) {
+      video.pause();
+    }
+  });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault();
+
+    // Loop through all close buttons and trigger the click
+    eventVideoCloseBtns.forEach((closeButton, i) => {
+      // Check if the video exists and trigger the close button click
+      const video = eventVideoEls[i];
+      if (video) {
+        closeButton.click();
+      }
+    });
+  }
+});

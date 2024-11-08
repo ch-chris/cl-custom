@@ -60,7 +60,7 @@ tl.to(
   0
 );
 
-items.forEach(function (el, i) {
+items.forEach(function (el) {
   let hovertl = gsap.timeline({ paused: true });
   hovertl.to(el, { scale: 1.15, ease: 'power1.inOut' });
   el.addEventListener('mouseenter', () => hovertl.play());
@@ -95,13 +95,13 @@ function nextItem(arr) {
   if (index === 0) {
     if (!nextBtn.classList.contains('disabled')) {
       nextBtn.classList.add('disabled');
-      console.log(index, 'next is disabled');
+      // console.log(index, 'next is disabled');
     }
   }
   if (index >= 0) {
     if (prevBtn.classList.contains('disabled')) {
       prevBtn.classList.remove('disabled');
-      console.log(index, 'prev is enabled');
+      // console.log(index, 'prev is enabled');
     }
   }
   return arr[index];
@@ -121,13 +121,13 @@ function prevItem(arr) {
   if (index === arr.length - 1) {
     if (!prevBtn.classList.contains('disabled')) {
       prevBtn.classList.add('disabled');
-      console.log(index, 'prev is disabled');
+      // console.log(index, 'prev is disabled');
     }
   }
   if (index <= arr.length - 1) {
     if (nextBtn.classList.contains('disabled')) {
       nextBtn.classList.remove('disabled');
-      console.log(index, 'next is enabled');
+      // console.log(index, 'next is enabled');
     }
   }
   return arr[index];

@@ -1,5 +1,5 @@
 import { Calendar } from '@fullcalendar/core';
-import { cs } from '@fullcalendar/core/internal-common';
+// import { cs } from '@fullcalendar/core/internal-common';
 //import { render } from '@fullcalendar/core/preact';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
@@ -46,7 +46,7 @@ window.Webflow.push(() => {
     return events;
   };
   const events = getEvents();
-  console.log(events);
+  // console.log(events);
 
   //grid calendar
   const gridCalendar = new Calendar(gridCalendarEl, {
@@ -108,5 +108,5 @@ window.Webflow.push(() => {
   const listHeaderEl = document.createElement('h3');
   listHeaderEl.textContent = 'Upcoming Events';
   listHeaderEl.classList.add('ev_fc-list-heading');
-  listCalendarEl.querySelector('.fc-toolbar-chunk').append(listHeaderEl);
+  listCalendarEl.querySelector('.fc-toolbar-chunk')?.append(listHeaderEl);
 });
